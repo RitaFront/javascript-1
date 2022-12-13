@@ -1,11 +1,14 @@
-const rate = 80;
-const hourseDay = 5;
-const daysWeek = 5;
+const investUsd = 12000;
+const percent = 0.07;
+const term = 2 * 12;
+const priceHouseUsd = 13500;
 
-const order = 40;
-const holiday = 11;
+let result = investUsd * (1 + percent / 12) ** term;
 
-let priceWork = rate * order;
-console.log('Стоимость работы: ' + priceWork + '$');
-let doWork = (holiday - 2) * hourseDay >= order;
-console.log('Успею выполнить работу? ' + doWork);
+if (result >= priceHouseUsd) {
+  console.log('Сможет купить дом');
+  let remainder = result - priceHouseUsd;
+  console.log(remainder);
+} else {
+  console.log('Не сможет купить дом');
+}

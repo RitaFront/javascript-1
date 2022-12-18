@@ -1,14 +1,30 @@
-const investUsd = 12000;
-const percent = 0.07;
-const term = 2 * 12;
-const priceHouseUsd = 13500;
+let result = prompt('Сколько будет 7 + или - 15?');
 
-let result = investUsd * (1 + percent / 12) ** term;
+//1 вариант с помощью if
+// if (result == 22 || result == -8 || result == 'Я не робот') {
+//   console.log('Успех');
+// } else {
+//   console.log('Вы робот');
+// }
 
-if (result >= priceHouseUsd) {
-  console.log('Сможет купить дом');
-  let remainder = result - priceHouseUsd;
-  console.log(remainder);
-} else {
-  console.log('Не сможет купить дом');
+//2 вариант с помощью swich
+// switch (result) {
+//   case '22':
+//   case '-8':
+//   case 'Я не робот':
+//     console.log('Успех');
+//     break;
+//   default:
+//     console.log('Вы робот');
+// }
+
+//3 вариант как правильнее
+switch (true) {
+  case result === 'Я не робот':
+  case Number(result) === 22:
+  case Number(result) === -8:
+    console.log('Успех');
+    break;
+  default:
+    console.log('Вы робот');
 }

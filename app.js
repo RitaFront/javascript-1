@@ -1,16 +1,10 @@
-const balance = 1200;
-const bonusBalance = 80;
-const isBanned = false;
-const isErist = false;
-const isSelling = true;
+// Переписать функцию в стрелочную
 
-if (
-  (balance >= 1000 || bonusBalance >= 100) &&
-  !isBanned &&
-  !isErist &&
-  isSelling
-) {
-  console.log('Вы можете купить игру!');
-} else {
-  console.log('Вы не можете купить игру :(');
+function toPower(num, power) {
+  const res = num ** power;
+  return res;
 }
+console.log(toPower(2, 2));
+
+const toPowerArrow = (num, power) => num ** power;
+console.log(toPowerArrow(2, 2));

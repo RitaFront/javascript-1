@@ -1,38 +1,34 @@
-// const priceMacbook = 2000;
-// const ageUser = 25;
-// const jobUser = true;
-// let moneyUser = 1500;
+const tasks = ['Задача 1'];
 
-function credit(age, job) {
-  if (age > 24 && job) {
-    return 500;
-  } else if (age > 24) {
-    return 100;
-  } else {
-    return 0;
+function addTask(task, array) {
+  array.push(task);
+}
+
+addTask('Задача 2', tasks);
+addTask('Задача 3', tasks);
+
+console.log(tasks);
+
+function deleteTask(task, array) {
+  const indexTask = array.indexOf(task);
+  if (indexTask === -1) {
+    return;
   }
+  array.splice(indexTask, 1);
 }
 
-// function buyMacbook(age, job, moneyUser, priceMacbook) {
-//   if (moneyUser >= priceMacbook) {
-//     console.log('Пользователь может купить Macbook :)');
-//   } else {
-//     const allmoney = credit(age, job) + moneyUser;
-//     if (allmoney >= priceMacbook) {
-//       console.log('Пользователь может купить Macbook :)');
-//     } else {
-//       console.log('Пользователь не сможет купить Macbook :(');
-//     }
-//   }
-// }
+deleteTask('Задача 4', tasks);
 
-// buyMacbook(25, false, 1900, 2000);
+console.log(tasks);
 
-//более простое решение
-
-function buyMacbook(age, job, moneyUser, priceMacbook) {
-  const creditMoney = credit(age, job);
-  return priceMacbook <= moneyUser + creditMoney;
+function transformTasks(task, array) {
+  const indexTask = array.indexOf(task);
+  if (indexTask === -1) {
+    return;
+  }
+  const findTask = array.splice(indexTask, 1).join();
+  array.unshift(findTask);
 }
 
-console.log(buyMacbook(25, false, 1900, 2000));
+transformTasks('Задача 3', tasks);
+console.log(tasks);

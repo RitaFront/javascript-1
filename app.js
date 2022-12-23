@@ -1,34 +1,16 @@
-const tasks = ['Задача 1'];
+const url = 'https://purplescool.ru/course/javascript';
 
-function addTask(task, array) {
-  array.push(task);
-}
-
-addTask('Задача 2', tasks);
-addTask('Задача 3', tasks);
-
-console.log(tasks);
-
-function deleteTask(task, array) {
-  const indexTask = array.indexOf(task);
-  if (indexTask === -1) {
-    return;
+function separation(url) {
+  const [protocol, _, host, ...path] = url.split('/');
+  if (protocol === 'https:' || protocol === 'http:') {
+    if (!host.includes('.')) {
+      return;
+    }
+    console.log(protocol, _, host, path);
+    console.log(`Протокол: ${protocol.split(':')[0]}`);
+    console.log(`Доменное имя: ${host}`);
+    console.log(`Путь внутри сайта: /${path.join('/')}`);
   }
-  array.splice(indexTask, 1);
 }
 
-deleteTask('Задача 4', tasks);
-
-console.log(tasks);
-
-function transformTasks(task, array) {
-  const indexTask = array.indexOf(task);
-  if (indexTask === -1) {
-    return;
-  }
-  const findTask = array.splice(indexTask, 1).join();
-  array.unshift(findTask);
-}
-
-transformTasks('Задача 3', tasks);
-console.log(tasks);
+separation(url);

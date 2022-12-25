@@ -1,16 +1,8 @@
-const url = 'https://purplescool.ru/course/javascript';
+const arr = ['!', 'JS', 'люблю', 'Я'];
+const arr2 = [];
 
-function separation(url) {
-  const [protocol, _, host, ...path] = url.split('/');
-  if (protocol === 'https:' || protocol === 'http:') {
-    if (!host.includes('.')) {
-      return;
-    }
-    console.log(protocol, _, host, path);
-    console.log(`Протокол: ${protocol.split(':')[0]}`);
-    console.log(`Доменное имя: ${host}`);
-    console.log(`Путь внутри сайта: /${path.join('/')}`);
-  }
+for (let i = arr.length - 1; i >= 0; i--) {
+  arr2.push(arr[i]);
 }
 
-separation(url);
+console.log(arr2.join(' '));

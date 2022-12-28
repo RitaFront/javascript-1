@@ -1,10 +1,11 @@
-const prices = [
-  [100, 200],
-  [120, 100],
-  [200, 350],
-];
+const arr = [1, 4, 4, 10];
 
-const result = prices
-  .map((product) => product[1] - product[0])
-  .filter((price) => price > 0);
-console.log(result);
+const avg = arr.reduce((acc, value, i) => {
+  if (i != arr.length - 1) {
+    return acc + value;
+  } else {
+    return (acc + value) / arr.length;
+  }
+}, 0);
+
+console.log(avg);

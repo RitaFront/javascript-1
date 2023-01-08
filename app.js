@@ -1,28 +1,9 @@
-const arr = [2, 4, 4, 10, 20];
+const userName = 'Вася aka Terminator Perdinator Пупкин';
 
-//мое решение
-// function some(arr, el) {
-//   let isOk = false;
-//   for (const elArr of arr) {
-//     if (el === elArr) {
-//       isOk = !isOk;
-//       break;
-//     }
-//   }
-//   return isOk;
-// }
+let name = userName.slice(0, userName.indexOf(' '));
+let surname = userName.slice(
+  userName.lastIndexOf(' ') + 1,
+  userName.length
+);
 
-// console.log(some(arr, 1));
-
-//более правильное и короткое решение
-
-// function some(array, element) {
-//   let res = array.find((el) => el === element);
-//   return res == undefined ? false : true;
-// }
-
-// console.log(some(arr, 0));
-
-//решение с помощью метода some
-
-console.log(arr.some((el) => el === 10));
+console.log(name + ' ' + surname);

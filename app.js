@@ -1,29 +1,54 @@
-const wallet = {
-  balance: 0,
-  operations: [],
-  positiveBalance: function (reason, sum) {
-    this.balance += sum;
-    this.operations.push({ reason, sum });
-    return true;
+const warehouse = {
+  goods: [],
+  findGoodById: function (id) {
+    return this.goods.find((g) => g.id == id);
   },
-  negativeBalance: function (reason, sum) {
-    if (this.balance < sum) {
-      return false;
+  addGood: function (good) {
+    const existedGood = this.findGoodById(good.id);
+    if (existedGood) {
+      console.log('Товар уже есть на складе');
+      return;
     }
-    this.balance -= sum;
-    this.operations.push({ reason, sum });
-    return true;
+    this.goods.push(good);
   },
-  sumOperations: function () {
-    return this.operations.length;
+  getWeightKg: function () {
+    return this.goods.reduce(
+      (acc, el) => (acc += el.weight?.kg ? el.weight.kg : 0),
+      0
+    );
   },
 };
 
-console.log(wallet.positiveBalance('Зп', 1000));
-console.log(wallet.sumOperations());
-console.log(wallet.negativeBalance('Долг', 2000));
-console.log(wallet.sumOperations());
-console.log(wallet.negativeBalance('Покупка', 500));
-console.log(wallet.sumOperations());
-console.log(wallet.operations);
-console.log(wallet.balance);
+//товары
+
+const car = {
+  id: 1,
+  weight: {
+    kg: 1000,
+  },
+  brand: 'Ford',
+};
+
+const chair = {
+  id: 2,
+  weight: {
+    kg: 2,
+  },
+};
+
+const paper = {
+  id: 3,
+  color: 'red',
+};
+
+warehouse.addGood(car);
+warehouse.addGood(car);
+warehouse.addGood(chair);
+warehouse.addGood(paper);
+console.log(warehouse.goods);
+let findedItem = warehouse.findGoodById(6);
+console.log(findedItem);
+findedItem = warehouse.findGoodById(1);
+console.log(findedItem);
+const w = warehouse.getWeightKg();
+console.log(w);

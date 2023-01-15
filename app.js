@@ -1,54 +1,28 @@
-const warehouse = {
-  goods: [],
-  findGoodById: function (id) {
-    return this.goods.find((g) => g.id == id);
+const company = {
+  name: 'ООО Агро',
+  employees: [
+    {
+      name: 'Света',
+    },
+    {
+      name: 'fff',
+    },
+  ],
+  ceo: {
+    name: 'Вася',
   },
-  addGood: function (good) {
-    const existedGood = this.findGoodById(good.id);
-    if (existedGood) {
-      console.log('Товар уже есть на складе');
-      return;
-    }
-    this.goods.push(good);
+  nameCompany: function () {
+    return this.name;
   },
-  getWeightKg: function () {
-    return this.goods.reduce(
-      (acc, el) => (acc += el.weight?.kg ? el.weight.kg : 0),
-      0
-    );
+  nameCeo: function () {
+    return this.ceo.name;
   },
-};
-
-//товары
-
-const car = {
-  id: 1,
-  weight: {
-    kg: 1000,
-  },
-  brand: 'Ford',
-};
-
-const chair = {
-  id: 2,
-  weight: {
-    kg: 2,
+  nameEmp: function () {
+    let a = this.employees.map((obj) => obj.name);
+    return a.join(' ');
   },
 };
 
-const paper = {
-  id: 3,
-  color: 'red',
-};
-
-warehouse.addGood(car);
-warehouse.addGood(car);
-warehouse.addGood(chair);
-warehouse.addGood(paper);
-console.log(warehouse.goods);
-let findedItem = warehouse.findGoodById(6);
-console.log(findedItem);
-findedItem = warehouse.findGoodById(1);
-console.log(findedItem);
-const w = warehouse.getWeightKg();
-console.log(w);
+console.log(company.nameCompany());
+console.log(company.nameCeo());
+console.log(company.nameEmp());

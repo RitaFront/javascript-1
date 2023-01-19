@@ -1,28 +1,16 @@
-const company = {
-  name: 'ООО Агро',
-  employees: [
-    {
-      name: 'Света',
-    },
-    {
-      name: 'fff',
-    },
-  ],
-  ceo: {
-    name: 'Вася',
-  },
-  nameCompany: function () {
-    return this.name;
-  },
-  nameCeo: function () {
-    return this.ceo.name;
-  },
-  nameEmp: function () {
-    let a = this.employees.map((obj) => obj.name);
-    return a.join(' ');
-  },
+function removePassword(reset) {
+  if (reset) {
+    this.password = undefined;
+  } else {
+    this.password = '1';
+  }
+}
+
+const user = {
+  name: 'Ivan',
+  password: '55657',
 };
 
-console.log(company.nameCompany());
-console.log(company.nameCeo());
-console.log(company.nameEmp());
+const removePasswordUser = removePassword.bind(user);
+removePasswordUser(true);
+console.log(user);

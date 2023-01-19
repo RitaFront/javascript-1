@@ -1,16 +1,27 @@
-function removePassword(reset) {
-  if (reset) {
-    this.password = undefined;
-  } else {
-    this.password = '1';
-  }
-}
-
-const user = {
-  name: 'Ivan',
-  password: '55657',
+const userInfo = {
+  balance: 0,
+  operations: 0,
+  increse(sum) {
+    this.balance += sum;
+    this.operations++;
+  },
 };
 
-const removePasswordUser = removePassword.bind(user);
-removePasswordUser(true);
-console.log(user);
+function user() {
+  const userObj = {
+    balance: 0,
+    operations: 0,
+    increse(sum) {
+      this.balance += sum;
+      this.operations++;
+    },
+  };
+  return function () {
+    return userObj;
+  };
+}
+
+const user1 = user();
+user1().increse(100);
+user1().increse(100);
+console.log(user1());

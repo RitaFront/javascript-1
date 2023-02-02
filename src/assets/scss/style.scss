@@ -1,0 +1,208 @@
+@import './base/normalize.scss';
+@import './base/variables.scss';
+
+body {
+  font-family: 'Comfortaa', cursive;
+  background-color: $bg;
+  font-weight: 400;
+}
+
+.app {
+  display: flex;
+
+  .panel {
+    background-color: #fbfaff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding: 28px 29px;
+    min-height: 100vh;
+
+    .menu {
+      display: flex;
+      gap: 25px;
+      flex-direction: column;
+      &__list {
+        display: flex;
+        gap: 25px;
+        flex-direction: column;
+        .menu__item {
+          .menu__btn {
+            width: 45px;
+            height: 45px;
+            background-color: $white;
+            box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+            border-radius: 14px;
+
+            &:hover {
+              background-color: $violet;
+            }
+
+            &:hover svg {
+              filter: brightness(0) invert(1);
+            }
+          }
+
+          .menu__btn--active {
+            background-color: $violet-active;
+
+            & svg {
+              filter: brightness(0) invert(1);
+            }
+          }
+        }
+      }
+
+      &__add {
+        border: 1px solid #cad5ff;
+        border-radius: 14px;
+        width: 45px;
+        height: 45px;
+
+        &:hover {
+          background-color: #eff2ff;
+        }
+      }
+    }
+  }
+
+  .content {
+    min-width: 900px;
+    padding: 45px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__title {
+        font-size: 30px;
+        line-height: 33px;
+        color: $black;
+      }
+
+      .progress {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        &__text {
+          display: flex;
+          gap: 127px;
+          align-items: center;
+
+          .progress__name {
+            font-size: 14px;
+            line-height: 16px;
+            color: #232360;
+          }
+
+          .progress__percent {
+            font-size: 12px;
+            line-height: 13px;
+            color: #768396;
+          }
+        }
+
+        &__bar {
+          width: 235px;
+          background-color: #e6e9ed;
+          border-radius: 4px;
+          height: 5px;
+
+          .progress__cover-bar {
+            background-color: $violet-active;
+            border-radius: 4px;
+            height: 5px;
+            width: 171px;
+          }
+        }
+      }
+    }
+
+    .main__content {
+      margin-top: 36px;
+    }
+
+    .habbit {
+      background-color: $white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+
+      &__day {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        color: $black;
+        background-color: #fbfaff;
+        padding: 19px 40px;
+        border-radius: 10px 0 0 10px;
+        border-right: 1px solid #e7ebfb;
+      }
+
+      &__comment {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #23235f;
+        padding-left: 24px;
+      }
+
+      .delete {
+        margin-left: auto;
+        padding: 2px;
+        margin-right: 6px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #eff2ff;
+        }
+      }
+
+      &__form {
+        display: flex;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #23235f;
+        padding-left: 24px;
+        position: relative;
+
+        .input__icon {
+          border: 1px solid #e7ebfb;
+          padding: 11px 0 11px 48px;
+          border-radius: 9px;
+          width: 521px;
+
+          &::placeholder {
+            color: #8899a8;
+          }
+        }
+
+        .comment__img {
+          position: absolute;
+          top: 11px;
+          left: 45px;
+        }
+
+        .habbit__btn {
+          color: $violet-active;
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 14px;
+          padding: 12px 32px;
+          background-color: #edecfe;
+          border-radius: 9px;
+          margin-left: 8px;
+
+          &:hover {
+            background-color: #dcdaff;
+          }
+        }
+      }
+    }
+  }
+}

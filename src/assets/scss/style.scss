@@ -27,29 +27,27 @@ body {
         display: flex;
         gap: 25px;
         flex-direction: column;
-        .menu__item {
-          .menu__btn {
-            width: 45px;
-            height: 45px;
-            background-color: $white;
-            box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
-            border-radius: 14px;
+        .menu__btn {
+          width: 45px;
+          height: 45px;
+          background-color: $white;
+          box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+          border-radius: 14px;
 
-            &:hover {
-              background-color: $violet;
-            }
-
-            &:hover svg {
-              filter: brightness(0) invert(1);
-            }
+          &:hover {
+            background-color: $violet;
           }
 
-          .menu__btn--active {
-            background-color: $violet-active;
+          &:hover img {
+            filter: brightness(0) invert(1);
+          }
+        }
 
-            & svg {
-              filter: brightness(0) invert(1);
-            }
+        .menu__btn--active {
+          background-color: $violet-active;
+
+          & img {
+            filter: brightness(0) invert(1);
           }
         }
       }
@@ -106,16 +104,16 @@ body {
         }
 
         &__bar {
-          width: 235px;
+          width: 100%;
           background-color: #e6e9ed;
           border-radius: 4px;
           height: 5px;
 
           .progress__cover-bar {
             background-color: $violet-active;
+            transition: all 0.5s;
             border-radius: 4px;
             height: 5px;
-            width: 171px;
           }
         }
       }

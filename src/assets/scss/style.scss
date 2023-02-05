@@ -180,6 +180,10 @@ body {
           }
         }
 
+        .error {
+          border: 1px solid red;
+        }
+
         .comment__img {
           position: absolute;
           top: 11px;

@@ -1,5 +1,6 @@
 let habbits = [];
 const HABBIT_KEY = 'HABBIT_KEY';
+let globalActiveHabbitId;
 
 //page
 
@@ -98,7 +99,7 @@ function rerenderBody(activeHabbit) {
               <div class="habbit__comment">
                 ${dayData.comment}
               </div>
-              <button class="delete">
+              <button class="delete" onclick="deleteDay(${dayNumber})">
                 <img src="./assets/images/delete.svg" alt="Удалить" />
               </button>
     `;
@@ -109,6 +110,7 @@ function rerenderBody(activeHabbit) {
 }
 
 function rerender(activeHabbitId) {
+  globalActiveHabbitId = activeHabbitId;
   const activeHabbit = habbits.find(
     (habbit) => habbit.id === activeHabbitId
   );
@@ -118,6 +120,48 @@ function rerender(activeHabbitId) {
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
   rerenderBody(activeHabbit);
+}
+
+//work with days
+
+function addDays(event) {
+  const form = event.target;
+  event.preventDefault();
+  const data = new FormData(form);
+  const comment = data.get('comment');
+  form['comment'].classList.remove('error');
+  if (!comment) {
+    form['comment'].classList.add('error');
+  }
+  habbits = habbits.map((habbit) => {
+    if (habbit.id === globalActiveHabbitId) {
+      return {
+        ...habbit,
+        days: habbit.days.concat({ comment }),
+      };
+    }
+    return habbit;
+  });
+  form['comment'].value = '';
+  rerender(globalActiveHabbitId);
+  saveData();
+}
+
+//delete
+
+function deleteDay(dayNumber) {
+  habbits = habbits.map((habbit) => {
+    if (habbit.id === globalActiveHabbitId) {
+      habbit.days.splice(dayNumber - 1, 1);
+      return {
+        ...habbit,
+        days: habbit.days,
+      };
+    }
+    return habbit;
+  });
+  rerender(globalActiveHabbitId);
+  saveData();
 }
 
 //init

@@ -5,6 +5,16 @@ body {
   font-family: 'Comfortaa', cursive;
   background-color: $bg;
   font-weight: 400;
+  color: $black;
+}
+
+.btn {
+  color: $violet-active;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 14px;
+  background-color: #edecfe;
+  border-radius: 9px;
 }
 
 .app {
@@ -23,13 +33,18 @@ body {
       display: flex;
       gap: 25px;
       flex-direction: column;
+
       &__list {
         display: flex;
         gap: 25px;
         flex-direction: column;
+
         .menu__btn {
           width: 45px;
           height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background-color: $white;
           box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
           border-radius: 14px;
@@ -191,13 +206,7 @@ body {
         }
 
         .habbit__btn {
-          color: $violet-active;
-          font-weight: 500;
-          font-size: 13px;
-          line-height: 14px;
           padding: 12px 32px;
-          background-color: #edecfe;
-          border-radius: 9px;
           margin-left: 8px;
 
           &:hover {
@@ -206,5 +215,112 @@ body {
         }
       }
     }
+  }
+
+  .cover {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .popup {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      width: 424px;
+      background-color: $white;
+      box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+      border-radius: 10px;
+      padding: 22px 24px 42px 24px;
+
+      &__title {
+        font-size: 24px;
+        line-height: 27px;
+      }
+
+      .icon-label {
+        margin-top: 19px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #768396;
+      }
+
+      .icon-select {
+        display: flex;
+        gap: 25px;
+        margin-top: 9px;
+
+        .icon {
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $white;
+          border-radius: 14px;
+          border: 1px solid $violet-active;
+
+          &:hover {
+            background-color: $violet;
+          }
+
+          &:hover img {
+            filter: brightness(0) invert(1);
+          }
+        }
+
+        .icon--active {
+          background-color: $violet-active;
+
+          & img {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+
+      &__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+
+      &__form {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+
+        .input__popup {
+          background: #ffffff;
+          border: 1px solid #e7ebfb;
+          border-radius: 9px;
+          padding: 12px 0 12px 20px;
+          width: 100%;
+
+          &::placeholder {
+            color: #8899a8;
+            font-size: 14px;
+            line-height: 16px;
+          }
+        }
+
+        .btn__popup {
+          padding: 14px 25px;
+        }
+      }
+    }
+  }
+
+  .cover__hidden {
+    display: none;
   }
 }
